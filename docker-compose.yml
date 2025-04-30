@@ -1,0 +1,53 @@
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-biblioteca
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  auth:
+    build: ./backend/auth
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./backend/auth/.env
+    depends_on:
+      - mysql
+
+  libros:
+    build: ./backend/libros
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./backend/libros/.env
+    depends_on:
+      - mysql
+
+  usuarios:
+    build: ./backend/usuarios
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./backend/usuarios/.env
+    depends_on:
+      - mysql
+
+  prestamos:
+    build: ./backend/prestamos
+    ports:
+      - "3004:3004"
+    env_file:
+      - ./backend/prestamos/.env
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
