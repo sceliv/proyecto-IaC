@@ -1,8 +1,8 @@
 # Sistema Web de Control de Biblioteca
 
-Este proyecto es un sistema web desarrollado con **React (Frontend)** y una arquitectura de microservicios en Node.js para el backend. La comunicación entre servicios se realiza mediante un API Gateway expuesto por Nginx. El sistema permite la gestión de usuarios, libros y préstamos de forma descentralizada y escalable.
+Este proyecto es un sistema web desarrollado con **React (Frontend)** y una arquitectura de microservicios en Node.js para el backend. La comunicación entre servicios se realiza mediante un API Gateway de AWS. El sistema permite la gestión de usuarios, libros y préstamos de forma descentralizada y escalable.
 
-## 📦 Estructura del Proyecto
+# Estructura del Proyecto
 
 ```
 proyecto/
@@ -28,15 +28,14 @@ proyecto/
 └── docker-compose.yml
 ```
 
-## 🚀 Tecnologías Usadas
+##  Tecnologías Usadas
 
 - **Frontend**: React + Vite
 - **Backend**: Node.js (Express)
 - **Base de Datos**: MySQL
-- **API Gateway**: Nginx
 - **Contenedores**: Docker y Docker Compose
 
-## ⚙️ Instalación y Ejecución
+## Instalación y Ejecución
 
 1. Clona este repositorio:
 ```bash
@@ -58,14 +57,14 @@ npm run dev
 
 4. Accede al sistema desde [http://localhost:5173](http://localhost:5173)
 
-## 🔐 Variables de Entorno
+## Variables de Entorno
 
 En `frontend/.env`:
 ```
 VITE_API_GATEWAY_URL=http://localhost:3000
 ```
 
-## 🌐 Rutas de Navegación
+## Rutas de Navegación
 
 - `/` → Dashboard principal
 - `/register` → Registro
@@ -74,6 +73,6 @@ VITE_API_GATEWAY_URL=http://localhost:3000
 - `/libros` y `/libros/create`
 - `/prestamos` y `/prestamos/create`
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto fue creado con fines académicos.
